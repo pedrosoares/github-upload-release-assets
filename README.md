@@ -19,6 +19,8 @@ This is a simple Rust Script that uses the Github API to upload assets to the re
     INPUT_CREATED_TAG: ${{ github.ref_name }}
     GITHUB_REPOSITORY: "pedrosoares/github-upload-release-assets"
     ASSET_FILE: ${{ matrix.asset }}
+    # Optional field (would use the ASSET_FILE if not provided)
+    ASSET_NAME: "TheNameOfTheAsset"
 ```
 
 ### 2. Give the action runner permission to execute changes

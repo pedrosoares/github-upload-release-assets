@@ -84,6 +84,7 @@ fn main() {
     }
 
     let asset_file = env::var("ASSET_FILE").expect("ASSET_FILE not set");
+    let asset_name = env::var("ASSET_NAME").unwrap_or(asset_file.clone());
     let github_token = env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN not set");
     let github_repository = env::var("GITHUB_REPOSITORY").expect("GITHUB_REPOSITORY not set");
     let auth_header = format!("Bearer {}", github_token);
@@ -96,7 +97,7 @@ fn main() {
 
     let url = format!(
         "https://uploads.github.com/repos/{}/releases/{}/assets?name={}",
-        github_repository, release_id, asset_file
+        github_repository, release_id, asset_name
     );
 
     let response = client
